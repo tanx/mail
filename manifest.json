@@ -1,0 +1,49 @@
+{
+  "name": "Whiteout Mail",
+  "description": "Simple and elegant email client with integrated end-to-end encryption. Keeping your emails safe has never been so easy.",
+  "version": "1.3.0",
+  "manifest_version": 2,
+  "offline_enabled": true,
+  "icons": {
+    "128": "img/icon-128-chrome.png",
+    "196": "img/icon-196-universal.png"
+  },
+  "permissions": [
+    "unlimitedStorage",
+    "notifications",
+    "https://settings.whiteout.io/",
+    "https://admin-node.whiteout.io/",
+    "https://www.googleapis.com/",
+    "identity",
+    {
+      "socket": [
+        "tcp-connect:*"
+      ]
+    }
+  ],
+  "sockets": {
+    "tcp": {
+      "connect": ""
+    }
+  },
+  "oauth2": {
+    "client_id": "440907777130.apps.googleusercontent.com",
+    "scopes": [
+      "email",
+      "https://mail.google.com/"
+    ]
+  },
+  "app": {
+    "background": {
+      "scripts": [
+        "background.js"
+      ]
+    }
+  },
+  "sandbox": {
+    "pages": [
+      "tpl/read-sandbox.html"
+    ],
+    "content_security_policy": "sandbox allow-popups allow-scripts; default-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; img-src *"
+  }
+}
